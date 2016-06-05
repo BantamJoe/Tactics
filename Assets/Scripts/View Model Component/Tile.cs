@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class Tile : MonoBehaviour
+{
 
     public const float stepHeight = 0.25f;
     public Point pos;
@@ -21,26 +22,26 @@ public class NewBehaviourScript : MonoBehaviour {
         transform.localScale = new Vector3(1, height * stepHeight, 1);
     }
 
-    public void Grow ()
+    public void Grow()
     {
         height++;
         Match();
     }
 
-    public void Shrink ()
+    public void Shrink()
     {
         height--;
         Match();
     }
 
-    public void Load (Point p, int h)
+    public void Load(Point p, int h)
     {
         pos = p;
         height = h;
         Match();
     }
 
-    public void Load (Vector3 v)
+    public void Load(Vector3 v)
     {
         Load(new Point((int)v.x, (int)v.z), (int)v.y);
     }
