@@ -42,16 +42,6 @@ public class NewBehaviourScript : MonoBehaviour {
 
     public void Load (Vector3 v)
     {
-        Load(new Point((int)v.x, (int)v.z, (int)v.y));
+        Load(new Point((int)v.x, (int)v.z), (int)v.y);
     }
-
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
