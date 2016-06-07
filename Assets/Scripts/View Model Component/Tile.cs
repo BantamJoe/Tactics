@@ -3,25 +3,22 @@ using System.Collections;
 
 public class Tile : MonoBehaviour
 {
-
+    #region Const
     public const float stepHeight = 0.25f;
+    #endregion
+
+    #region Fields / Properties
     public Point pos;
     public int height;
+    public Vector3 center { get { return new Vector3(pos.x, height * stepHeight, pos.y); } }
+    public GameObject content;
+    [HideInInspector]
+    public Tile prev;
+    [HideInInspector]
+    public int distance;
+    #endregion
 
-    public Vector3 center
-    {
-        get
-        {
-            return new Vector3(pos.x, height * stepHeight, pos.y);
-        }
-    }
-
-    void Match()
-    {
-        transform.localPosition = new Vector3(pos.x, height * stepHeight / 2f, pos.y);
-        transform.localScale = new Vector3(1, height * stepHeight, 1);
-    }
-
+    #region Public
     public void Grow()
     {
         height++;
@@ -45,4 +42,13 @@ public class Tile : MonoBehaviour
     {
         Load(new Point((int)v.x, (int)v.z), (int)v.y);
     }
+    #endregion
+
+    #region Private
+    void Match()
+    {
+        transform.localPosition = new Vector3(pos.x, height * stepHeight / 2f, pos.y);
+        transform.localScale = new Vector3(1, height * stepHeight, 1);
+    }
+    #endregion
 }
