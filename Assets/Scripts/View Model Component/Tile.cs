@@ -16,7 +16,7 @@ public class Tile : MonoBehaviour
     public Tile prev;
     [HideInInspector]
     public int distance;
-    #endregion
+    #endregion 
 
     #region Public
     public void Grow()
